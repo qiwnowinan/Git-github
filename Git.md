@@ -98,4 +98,31 @@ git reflog # 查看所有的提交记录，包括被回退的提交
 
 ![回退示意图](./images/git%20reset的三种状态.png)
 
+![HEAD示意图](./images/HEAD.png)
+
 ## 查看差异
+
+```bash
+git diff # 查看工作区和暂存区的差异
+git diff HEAD # 查看所有未提交的修改和上一个提交的差异
+git diff --cached # 查看暂存区和上一个提交的差异
+
+git diff Git.md # 查看Git.md文件的差异
+
+git diff <commit1_id> <commit2_id> # 查看两个提交之间的差异
+git diff HEAD~1 HEAD # 查看上一个提交和当前提交之间的差异
+
+git diff <branch1> <branch2> # 查看两个分支之间的差异
+```
+
+![差异示意图](./images/diff.png)
+
+## 删除文件
+
+```bash
+
+git rm file.txt # 删除文件并将删除操作添加到暂存区
+git rm --cached file.txt # 仅将文件从暂存区移除，但保留在工作区
+```
+
+## 忽略文件
