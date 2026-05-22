@@ -72,6 +72,30 @@ git clone https://github.com/ClaudyaRiano/AICode
 git status # 查看文件状态
 
 git add file.txt # 将文件添加到暂存区(如file.txt)
+git add *.txt # 将当前目录下的所有txt文件添加到暂存区
+git add . # 将当前目录下的所有文件添加到暂存区
 
 git commit -m "提交信息" # 提交暂存区的文件到本地仓库
+
+git log # 查看提交历史
+git log --oneline # 以简洁的方式查看提交历史
 ```
+
+## 回退
+
+```bash
+git reset --soft HEAD~1 # 回退到上一个提交，保留修改
+git reset --hard HEAD~1 # 回退到上一个提交，丢弃修改
+git reset --mixed HEAD~1 # 回退到上一个提交，保留修改但不保留暂存区的状态
+
+git reset --soft <commit_id> # 回退到指定提交(用commit_id),commit_id可以通过git log查看
+git reset --hard <commit_id> # 回退到指定提交(用commit_id)
+git reset --mixed <commit_id> # 回退到指定提交(用commit_id)
+
+git reflog # 查看所有的提交记录，包括被回退的提交
+# 如果误操作了，可以通过git reflog找到被回退的提交的commit_id，然后使用git reset --hard <commit_id>恢复到那个提交
+```
+
+![回退示意图](./images/git%20reset的三种状态.png)
+
+## 查看差异
