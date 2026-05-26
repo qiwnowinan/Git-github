@@ -48,6 +48,8 @@ git init
 git clone https://github.com/ClaudyaRiano/AICode
 ```
 
+PS：应该在桌面或者其他目录下执行这个命令，克隆到当前目录下会创建一个AICode文件夹，里面就是克隆下来的仓库内容
+
 ## 工作区域
 
 - 工作区（Working Directory）：你正在编辑的文件所在的目录。
@@ -121,10 +123,22 @@ git diff <branch1> <branch2> # 查看两个分支之间的差异
 
 ```bash
 
-git rm file.txt # 删除文件并将删除操作添加到暂存区
+# 这些命令会删除文件，还要commit才能真正删除文件
+git rm file.txt # 删除文件(工作区)并将删除操作添加到暂存区，还要commit
+
 git rm --cached file.txt # 仅将文件从暂存区移除，但保留在工作区
 ```
 
 ## 忽略文件
 
-test
+建一个.gitignore文件，在里面写上要忽略的文件或目录的路径，例如：
+
+```gitignore
+test.txt # 忽略test.txt文件
+
+*.log # 忽略所有以.log结尾的文件
+
+temp/ # 忽略temp目录下的所有文件
+```
+
+PS:.gitignore无法忽略已经被git跟踪的文件，如果要忽略已经被跟踪的文件，需要先使用`git rm --cached file.txt`将其从暂存区移除，然后再添加到.gitignore中，最后commit  
